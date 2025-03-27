@@ -7,8 +7,12 @@ namespace Chronos
     {
         private static void Main(string[] args)
         {
-            Stopwatch chrono1 = new Stopwatch();
-            Stopwatch chrono2 = new Stopwatch();
+            // Create new Stopwatch instances
+            Stopwatch crono1 = new Stopwatch();
+            Stopwatch crono2 = new Stopwatch();
+
+            // Start the first stopwatch
+            crono1.Start();
         }
     }
 }
