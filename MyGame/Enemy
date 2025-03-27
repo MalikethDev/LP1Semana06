@@ -1,0 +1,19 @@
+using System;
+
+namespace MyGame
+{
+    public class Enemy
+    {
+        private float string name;
+        private float health;
+        private float shield;
+
+        // Constructor
+        public Enemy(string name, float health, float shield)
+        {
+            this.name = name;
+            health = 100;
+            shield = 0;
+        }
+    }
+}
