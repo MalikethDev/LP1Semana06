@@ -4,16 +4,38 @@ namespace MyGame
 {
     public class Enemy
     {
-        private float string name;
+        private string name;
         private float health;
         private float shield;
 
         // Constructor
-        public Enemy(string name, float health, float shield)
+        public Enemy(string name)
         {
             this.name = name;
             health = 100;
             shield = 0;
+        }
+
+        // Get enemy name
+        public string GetName()
+        {
+            return name;
+        }
+
+        // Deal damage to the enemy
+        public void TakeDamage(float damage)
+        {
+            shield -= damage; // Subtract damage from shield first
+            if (shield > 0)
+            {
+                float damageStillToInflict = -shield; // Calculate damage that will go through shield
+                shield = 0; // Set shield to 0 after damage is applied
+                health -= damageStillToInflict; // Apply remaining damage to health
+                if (health < 0)
+                {
+                    health = 0; // Ensure health doesn't go below 0
+                }
+            }
         }
     }
 }
