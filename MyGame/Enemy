@@ -36,6 +36,17 @@ namespace MyGame
                     health = 0; // Ensure health doesn't go below 0
                 }
             }
+
+            // Get Health and Shield Method
+            public float GetHealth()
+            {
+                return health;
+            }
+
+            public float GetShield()
+            {
+                return shield;
+            }
         }
     }
 }
