@@ -16,13 +16,17 @@ namespace Chronos
             crono1.Start();
             Console.WriteLine("Crono 1 started...");
 
+            // Pause for 500 milliseconds
+            Thread.Sleep(500);
+            Console.WriteLine("Crono 1 paused for 500 milliseconds...");
+
             // Start the second stopwatch
             crono2.Start();
             Console.WriteLine("Crono 2 started...");
 
-            // Pause for 500 milliseconds
-            Thread.Sleep(500);
-            Console.WriteLine("Crono 1 paused for 500 milliseconds...");
+            // Pause for 0.25 seconds
+            Thread.Sleep(250);
+            Console.WriteLine("Crono 2 paused for 250 milliseconds...");
         }
     }
 }
