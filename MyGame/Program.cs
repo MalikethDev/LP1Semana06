@@ -14,6 +14,9 @@ namespace MyGame
                 return;
             }
 
+            // Create an array with capacity for the number of enemies
+            Enemy[] enemiesArray = new Enemy[numberOfEnemies];
+
             // Create a list of enemies
             List<Enemy> enemies = new List<Enemy>();
 
