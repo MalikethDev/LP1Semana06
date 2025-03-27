@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Chronos
 {
@@ -13,6 +14,11 @@ namespace Chronos
 
             // Start the first stopwatch
             crono1.Start();
+            Console.WriteLine("Crono 1 started...");
+
+            // Pause for 500 milliseconds
+            Thread.Sleep(500);
+            Console.WriteLine("Crono 1 paused for 500 milliseconds...");
         }
     }
 }
