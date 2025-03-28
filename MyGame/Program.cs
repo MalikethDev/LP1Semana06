@@ -17,18 +17,33 @@ namespace MyGame
             // Create an array with capacity for the number of enemies
             Enemy[] enemiesArray = new Enemy[numberOfEnemies];
 
-            // Create a list of enemies
-            List<Enemy> enemies = new List<Enemy>();
-
-            // Create enemies with default names
+            // Ask the user for enemy names
             for (int i = 0; i < numberOfEnemies; i++)
             {
-                Enemy enemy = new Enemy($"Enemy {i + 1}");
-                enemies.Add(enemy);
+                Console.Write($"Enter name for enemy {i + 1}: ");
+                string name = Console.ReadLine();
+                enemiesArray[i] = new Enemy(name);
             }
 
-            // Print the names of the enemies
-            Console.WriteLine($" {numberOfEnemies} created:");
+            // Ensure the names don't exceed 8 characters
+            if (enemiesArray[0].GetName().Length > 8)
+            {
+                Console.WriteLine("Error: Name cannot exceed 8 characters.");
+                return;
+            }
+
+            // Create the enemy objects
+            for (int i = 0; i < numberOfEnemies; i++)
+            {
+                enemiesArray[i] = new Enemy(enemiesArray[i].GetName());
+            }
+
+            // After inserting all names, print the names, health and shield of each enemy
+            Console.WriteLine("\nEnemies created:");
+            for (int i = 0; i < numberOfEnemies; i++)
+            {
+                Console.WriteLine($"Enemy {i + 1}: Name: {enemiesArray[i].GetName()}, Health: {enemiesArray[i].GetHealth()}, Shield: {enemiesArray[i].GetShield()}");
+            }
         }
     }
 }
