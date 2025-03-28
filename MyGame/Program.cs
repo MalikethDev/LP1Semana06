@@ -16,6 +16,7 @@ namespace MyGame
 
             // Create an array with capacity for the number of enemies
             Enemy[] enemiesArray = new Enemy[numberOfEnemies];
+            Random random = new Random(); // Random number generator
 
             // Ask the user for enemy names
             for (int i = 0; i < numberOfEnemies; i++)
@@ -43,6 +44,20 @@ namespace MyGame
             for (int i = 0; i < numberOfEnemies; i++)
             {
                 Console.WriteLine($"Enemy {i + 1}: Name: {enemiesArray[i].GetName()}, Health: {enemiesArray[i].GetHealth()}, Shield: {enemiesArray[i].GetShield()}");
+            }
+
+            // Randomly pick up power-ups for each enemy
+            for (int i = 0; i < numberOfEnemies; i++)
+            {
+                // Randomly choose a power-up type
+                PowerUp powerUp = (PowerUp)random.Next(0, 2); // 0 for Health, 1 for Shield
+                float amount = random.Next(1, 100); // Random amount between 1 and 100
+
+                // Pick up the power-up
+                enemiesArray[i].PickUpPowerUp(powerUp, amount);
+
+                // Print the updated health and shield after picking up the power-up
+                Console.WriteLine($"Enemy {i + 1} picked up a {powerUp} power-up of amount {amount}. Updated Health: {enemiesArray[i].GetHealth()}, Shield: {enemiesArray[i].GetShield()}");
             }
         }
     }
