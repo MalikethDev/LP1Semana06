@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MyGame // Ensure this matches Program.cs
 {
@@ -62,6 +63,28 @@ namespace MyGame // Ensure this matches Program.cs
                 if (shield > 100) // Ensure shield does not exceed 100
                 {
                     shield = 100;
+                }
+            }
+        }
+
+        // TakeDamage method
+        public void TakeDamage(float damage)
+        {
+            if (shield > 0)
+            {
+                shield -= damage; // Reduce shield first
+                if (shield < 0) // If shield goes below 0, reduce health
+                {
+                    health += shield; // Add the negative value of shield to health
+                    shield = 0; // Set shield to 0
+                }
+            }
+            else
+            {
+                health -= damage; // Reduce health directly if no shield
+                if (health < 0) // Ensure health does not go below 0
+                {
+                    health = 0;
                 }
             }
         }

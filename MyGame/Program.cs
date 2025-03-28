@@ -57,7 +57,17 @@ namespace MyGame
                 enemiesArray[i].PickUpPowerUp(powerUp, amount);
 
                 // Print the updated health and shield after picking up the power-up
-                Console.WriteLine($"Enemy {i + 1} picked up a {powerUp} power-up of amount {amount}. Updated Health: {enemiesArray[i].GetHealth()}, Shield: {enemiesArray[i].GetShield()}");
+                Console.WriteLine($"Enemy {i + 1} picked up a {powerUp} power-up of {amount}. Updated Health: {enemiesArray[i].GetHealth()}, Shield: {enemiesArray[i].GetShield()}");
+            }
+
+            // Apply TakeDamage method to each enemy
+            for (int i = 0; i < numberOfEnemies; i++)
+            {
+                float damage = random.Next(1, 50); // Random damage between 1 and 50
+                enemiesArray[i].TakeDamage(damage);
+
+                // Print the updated health and shield after taking damage
+                Console.WriteLine($"Enemy {i + 1} took {damage} damage. Updated Health: {enemiesArray[i].GetHealth()}, Shield: {enemiesArray[i].GetShield()}");
             }
         }
     }
